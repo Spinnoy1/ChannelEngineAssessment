@@ -46,28 +46,10 @@ namespace ConsoleApp
 
             var orderList = await _orders.GetOrders("IN_PROGRESS", _orderAPIAppSettings);
 
-            var vm = new HomeViewModel();
-
-            vm.groupedProducts = new List<Top5ViewModel>();
-
-            foreach (var i in orderList)
-            {
-                var product = new Top5ViewModel()
-                {
-                    Description = i.Description,
-                    Gtin = i.Gtin,
-                    Quantity = i.Quantity,
-                    MerchantProductNo = i.MerchantProductNo,
-                    StockLocationId = i.StockLocation.Id
-                };
-
-                vm.groupedProducts.Add(product);
-            }
-
             //build a table with ConsoleTable Nuget Package
             var table = new ConsoleTable("ProductId", "Description", "Quantity","GTIN");
 
-            foreach (var i in vm.groupedProducts)
+            foreach (var i in orderList)
             {
                 table.AddRow(i.MerchantProductNo, i.Description, i.Quantity, i.Gtin);
             }
@@ -78,13 +60,13 @@ namespace ConsoleApp
             Console.WriteLine("Please enter the ProductID you would like to update the Stock Level of");
             string productID = Console.ReadLine();
 
-            bool doesProductExists = vm.groupedProducts.Any(x => x.MerchantProductNo == productID);
+            bool doesProductExists = orderList.Any(x => x.MerchantProductNo == productID);
 
             while (doesProductExists == false)
             {
                 Console.WriteLine("Incorrect ProductID, please choose a ProductID from the list above");
                 productID = Console.ReadLine();
-                doesProductExists = vm.groupedProducts.Any(x => x.MerchantProductNo == productID);
+                doesProductExists = orderList.Any(x => x.MerchantProductNo == productID);
             }
 
             //Take in Units of stock to Update
@@ -106,7 +88,7 @@ namespace ConsoleApp
 
             }
 
-            var stockLocationId = vm.groupedProducts.Where(x => x.MerchantProductNo == productID).FirstOrDefault().StockLocationId;
+            var stockLocationId = orderList.Where(x => x.MerchantProductNo == productID).FirstOrDefault().StockLocationId;
             
             //Push the new Stock Value
             try

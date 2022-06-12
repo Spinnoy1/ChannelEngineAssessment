@@ -15,7 +15,7 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Models
 
     }
 
-    public class HomeViewModel
+    public class GroupedProductsViewModel
     {
         public List<Top5ViewModel> groupedProducts { get; set; }
     }

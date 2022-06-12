@@ -78,3 +78,4 @@ C:\ChannelEngineAssessment\ConsoleApp\obj\Debug\net5.0\ConsoleApp.dll
 C:\ChannelEngineAssessment\ConsoleApp\obj\Debug\net5.0\ref\ConsoleApp.dll
 C:\ChannelEngineAssessment\ConsoleApp\obj\Debug\net5.0\ConsoleApp.pdb
 C:\ChannelEngineAssessment\ConsoleApp\obj\Debug\net5.0\ConsoleApp.genruntimeconfig.cache
+C:\ChannelEngineAssessment\ConsoleApp\bin\Debug\net5.0\config.json

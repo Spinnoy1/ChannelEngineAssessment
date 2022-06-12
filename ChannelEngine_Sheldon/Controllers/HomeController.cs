@@ -34,26 +34,29 @@ namespace ChannelEngine_Sheldon.Controllers
             try
             {
                 var orderList = await this._order.GetOrders("IN_PROGRESS"); // make enum
+                
+                GroupedProductsViewModel gp = new GroupedProductsViewModel();
+                gp.groupedProducts = orderList;
+                
+                //var viewModel = new HomeViewModel();
 
-                var viewModel = new HomeViewModel();
+                //viewModel.groupedProducts = new List<Top5ViewModel>();
 
-                viewModel.groupedProducts = new List<Top5ViewModel>();
+                //foreach (var i in orderList)
+                //{
+                //    var product = new Top5ViewModel()
+                //    {
+                //        Description = i.Description,
+                //        Gtin = i.Gtin,
+                //        Quantity = i.Quantity,
+                //        MerchantProductNo = i.MerchantProductNo,
+                //        StockLocationId = i.StockLocation.Id
+                //    };
 
-                foreach (var i in orderList)
-                {
-                    var product = new Top5ViewModel()
-                    {
-                        Description = i.Description,
-                        Gtin = i.Gtin,
-                        Quantity = i.Quantity,
-                        MerchantProductNo = i.MerchantProductNo,
-                        StockLocationId = i.StockLocation.Id
-                    };
+                //    viewModel.groupedProducts.Add(product);
+                //}
 
-                    viewModel.groupedProducts.Add(product);
-                }
-
-                return View(viewModel);
+                return View(gp);
             }
             catch
             {

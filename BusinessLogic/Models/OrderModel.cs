@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace ChannelEngine_Sheldon.BusinessLogic.Models
 {
-    public partial class Welcome
+    public partial class FullOrder
     {
         [JsonProperty("Content")]
         public Content[] Content { get; set; }

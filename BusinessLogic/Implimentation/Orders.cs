@@ -26,12 +26,12 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
         }
    
 
-        public async Task<List<Line>> GetOrders(string status, string consoleAppSettings = null)
+        public async Task<List<Top5ViewModel>> GetOrders(string status, string consoleAppSettings = null)
         {
 
-        var groupedOrders = new List<Line>();
+       // var groupedOrders = new List<Line>();
 
-            Welcome orderList = new Welcome();
+            FullOrder orderList = new FullOrder();
 
             var httpClient = new HttpClient();
             var response = new HttpResponseMessage();
@@ -47,24 +47,53 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
                  response = await httpClient.GetAsync(consoleAppSettings);
             }
                                  
-                   string apiResponse = await response.Content.ReadAsStringAsync();
-                    orderList = JsonConvert.DeserializeObject<Welcome>(apiResponse);
+            string apiResponse = await response.Content.ReadAsStringAsync();
+            orderList = JsonConvert.DeserializeObject<FullOrder>(apiResponse);
+            
 
-                    List<Content> contents = new List<Content>();
+            //Start Setting up products to be grouped / Top 5
+            var groupModel = new GroupedProductsViewModel();
 
-                    groupedOrders = orderList.Content.GroupBy(g => new { g.Lines[0].Description, g.Lines[0].Gtin, g.Lines[0].MerchantProductNo, g.Lines[0].StockLocation.Id})
-                        .Select(g => new Line
+            groupModel.groupedProducts = new List<Top5ViewModel>();
+
+            int count = orderList.Content.Count();
+
+            foreach (var i in orderList.Content)
+            {
+            
+                foreach (var l in i.Lines)
+                { 
+                    var product = new Top5ViewModel()
+                    {
+                        Description = l.Description,
+                        Gtin = l.Gtin,
+                        Quantity = l.Quantity,
+                        MerchantProductNo = l.MerchantProductNo,
+                        StockLocationId = l.StockLocation.Id
+                    };
+
+                    groupModel.groupedProducts.Add(product);
+                }
+            }
+            var listOfOrders = GetTop5Products(groupModel);
+
+            return listOfOrders;
+
+        }
+
+        public List<Top5ViewModel> GetTop5Products(GroupedProductsViewModel order)
+        { 
+            var groupedOrder = order.groupedProducts.GroupBy(g => new { g.Description, g.Gtin, g.MerchantProductNo, g.StockLocationId })
+                        .Select(g => new Top5ViewModel
                         {
                             Gtin = g.Key.Gtin,
                             Description = g.Key.Description,
-                            Quantity = g.Sum(c => c.Lines[0].Quantity),
+                            Quantity = g.Sum(c => c.Quantity),
                             MerchantProductNo = g.Key.MerchantProductNo,
-                            StockLocation = new StockLocation { Id = g.Key.Id }
+                            StockLocationId =  g.Key.StockLocationId 
                         }).OrderByDescending(x => x.Quantity).Take(5).ToList();
-                
-            
 
-            return groupedOrders;
+            return groupedOrder;
 
         }
     }
