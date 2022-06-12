@@ -1,0 +1,12 @@
+C:\Assessment\BusinessLogic\bin\Debug\net5.0\BusinessLogic.deps.json
+C:\Assessment\BusinessLogic\bin\Debug\net5.0\BusinessLogic.dll
+C:\Assessment\BusinessLogic\bin\Debug\net5.0\ref\BusinessLogic.dll
+C:\Assessment\BusinessLogic\bin\Debug\net5.0\BusinessLogic.pdb
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfo.cs
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb
+C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csprojAssemblyReference.cache
