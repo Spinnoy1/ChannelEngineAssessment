@@ -1,6 +1,7 @@
 ﻿using ChannelEngine_Sheldon.BusinessLogic.Contracts;
 using ChannelEngine_Sheldon.BusinessLogic.Implimentation;
 using ChannelEngine_Sheldon.BusinessLogic.Models;
+using ChannelEngine_Sheldon.BusinessLogic.Models.AppSettings;
 using ConsoleTables;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
@@ -25,21 +26,25 @@ namespace ConsoleApp
 
             IConfiguration config = builder.Build();
 
-            GetOrders().GetAwaiter().GetResult();
+            var AppSettings = config.GetSection("AppSettings").Get<AppSettings>();
+
+            GetOrders(AppSettings).GetAwaiter().GetResult();
         }
 
-        public static async Task GetOrders()
+        public static async Task GetOrders(AppSettings _appSettings)
         {
             //Dependency Inject Orders
             var serviceProvider = new ServiceCollection()
            .AddTransient<IOrders, Orders>()
-         //  .AddOptions()
+           .AddOptions()
            .BuildServiceProvider();
-           
+
+            var _orderAPIAppSettings = _appSettings.OrderAPI;
+            var _stockAPIAppSettings = _appSettings.StockAPI;
 
             var _orders = serviceProvider.GetService<IOrders>();
 
-            var orderList = await _orders.GetOrders("IN_PROGRESS");
+            var orderList = await _orders.GetOrders("IN_PROGRESS", _orderAPIAppSettings);
 
             var vm = new HomeViewModel();
 

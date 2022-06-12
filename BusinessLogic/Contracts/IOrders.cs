@@ -9,6 +9,6 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Contracts
 {
     public interface IOrders
     {
-        Task<List<Line>> GetOrders(string status);
+        Task<List<Line>> GetOrders(string status, string consoleAppSettings = null);
     }
 }

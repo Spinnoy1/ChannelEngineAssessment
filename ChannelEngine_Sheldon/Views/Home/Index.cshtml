@@ -11,6 +11,7 @@
             <th>GTIN</th>
             <th>Quantity</th>
             <th>Set Stock Level</th>
+            <th>Update Stock Level</th>
         </tr>
     </thead>
     <tbody>
@@ -21,12 +22,22 @@
             <td>@o.Description</td>
             <td>@o.Gtin</td>
             <td>@o.Quantity</td>
+            <td><input type ="text" name ="StockLevel "id="@o.MerchantProductNo"/></td>
             <td>
-                <a asp-action="UpdateStock" asp-route-MerchantProductNo="@o.MerchantProductNo" asp-route-StockLocationId="@o.StockLocationId">
+                <input type="button" onclick="postStockLevel('@o.MerchantProductNo.ToString()', '@o.StockLocationId.ToString()', '@o.MerchantProductNo.ToString()')" /> 
+                @*<a asp-action="UpdateStock" asp-route-MerchantProductNo="@o.MerchantProductNo" asp-route-StockLocationId="@o.StockLocationId" asp-route-StockLevel="StockLevel">
                     Set Stock Level to 25
-                </a>
+                </a>*@
             </td>
         </tr>
         }
     </tbody>
 </table>
+
+<script type="text/javascript">
+    var postStockLevel = function (merchantProductNo,stockLocationId, stockLevel) {
+        var sl = document.getElementById(stockLevel).value;
+
+        $.post('@Url.Action("UpdateStock", "Home")', { MerchantProductNo: merchantProductNo, StockLocationId: stockLocationId, StockLevel: sl });
+    }
+</script>

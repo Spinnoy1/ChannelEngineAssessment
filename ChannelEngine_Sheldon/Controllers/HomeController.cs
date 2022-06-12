@@ -62,11 +62,12 @@ namespace ChannelEngine_Sheldon.Controllers
             }
         }
 
-        public async Task<IActionResult> UpdateStock(string MerchantProductNo, long StockLocationId)
+        [HttpPost]
+        public async Task<IActionResult> UpdateStock(string MerchantProductNo, long StockLocationId, int StockLevel)
         {
             try
             {
-                var stockResponse = await this._stock.PutStock(MerchantProductNo, 25, StockLocationId);
+                var stockResponse = await this._stock.PutStock(MerchantProductNo, StockLevel, StockLocationId);
 
                 if (stockResponse.Success)
                 {

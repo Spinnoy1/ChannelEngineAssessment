@@ -26,7 +26,7 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
         }
    
 
-        public async Task<List<Line>> GetOrders(string status)
+        public async Task<List<Line>> GetOrders(string status, string consoleAppSettings = null)
         {
 
         var groupedOrders = new List<Line>();
@@ -34,10 +34,18 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
             Welcome orderList = new Welcome();
 
             var httpClient = new HttpClient();
+            var response = new HttpResponseMessage();
 
-           // httpClient.DefaultRequestHeaders.Add("api-key",_appSettings.AuthKey);
+            // httpClient.DefaultRequestHeaders.Add("api-key",_appSettings.AuthKey);
 
-            var response = await httpClient.GetAsync(_appSettings.OrderAPI);
+            if (consoleAppSettings == null)
+            {
+                 response = await httpClient.GetAsync(_appSettings.OrderAPI);
+            }
+            else
+            {
+                 response = await httpClient.GetAsync(consoleAppSettings);
+            }
                                  
                    string apiResponse = await response.Content.ReadAsStringAsync();
                     orderList = JsonConvert.DeserializeObject<Welcome>(apiResponse);

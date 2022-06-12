@@ -10,3 +10,15 @@ C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
 C:\Assessment\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
 C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb
 C:\Assessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csprojAssemblyReference.cache
+C:\ChannelEngineAssessment\BusinessLogic\bin\Debug\net5.0\BusinessLogic.deps.json
+C:\ChannelEngineAssessment\BusinessLogic\bin\Debug\net5.0\BusinessLogic.dll
+C:\ChannelEngineAssessment\BusinessLogic\bin\Debug\net5.0\ref\BusinessLogic.dll
+C:\ChannelEngineAssessment\BusinessLogic\bin\Debug\net5.0\BusinessLogic.pdb
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csprojAssemblyReference.cache
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfo.cs
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb
