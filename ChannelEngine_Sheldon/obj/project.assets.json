@@ -6492,9 +6492,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\ChannelEngine_Sheldon.csproj",
-      "projectName": "ChannelEngine_Sheldon",
-      "projectPath": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\ChannelEngine_Sheldon.csproj",
+      "projectUniqueName": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\WebUI.csproj",
+      "projectName": "WebUI",
+      "projectPath": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\WebUI.csproj",
       "packagesPath": "C:\\Users\\SheldonP\\.nuget\\packages\\",
       "outputPath": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\obj\\",
       "projectStyle": "PackageReference",

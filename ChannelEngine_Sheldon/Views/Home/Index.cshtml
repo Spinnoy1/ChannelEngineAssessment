@@ -1,8 +1,7 @@
 ﻿@model ChannelEngine_Sheldon.BusinessLogic.Models.HomeViewModel
-@{ Layout = "_Layout"; ViewBag.Title = "All Orders";}
+@{ Layout = "_Layout"; ViewBag.Title = "Top 5 Products Sold";}
 
-<h2>All Orders</h2>
-<a asp-action="AddReservation" class="btn btn-sm btn-primary">Update Stock</a>
+<h2>Top 5 Products Sold</h2>
 
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>
@@ -22,9 +21,9 @@
             <td>@o.Description</td>
             <td>@o.Gtin</td>
             <td>@o.Quantity</td>
-            <td><input type ="text" name ="StockLevel "id="@o.MerchantProductNo"/></td>
+            <td><input type ="number" name ="StockLevel" min="1" max="1000" step="1" id="@o.MerchantProductNo" width="100px"/></td>
             <td>
-                <input type="button" onclick="postStockLevel('@o.MerchantProductNo.ToString()', '@o.StockLocationId.ToString()', '@o.MerchantProductNo.ToString()')" /> 
+                <input type="button" onclick="postStockLevel('@o.MerchantProductNo.ToString()', '@o.StockLocationId.ToString()', '@o.MerchantProductNo.ToString()')" value="Update Stock" /> 
                 @*<a asp-action="UpdateStock" asp-route-MerchantProductNo="@o.MerchantProductNo" asp-route-StockLocationId="@o.StockLocationId" asp-route-StockLevel="StockLevel">
                     Set Stock Level to 25
                 </a>*@
@@ -38,6 +37,6 @@
     var postStockLevel = function (merchantProductNo,stockLocationId, stockLevel) {
         var sl = document.getElementById(stockLevel).value;
 
-        $.post('@Url.Action("UpdateStock", "Home")', { MerchantProductNo: merchantProductNo, StockLocationId: stockLocationId, StockLevel: sl });
+        window.location.href = '@Url.Action("UpdateStock", "Home")' + '?MerchantProductNo=' + merchantProductNo + '&StockLocationId=' + stockLocationId + '&StockLevel=' + sl ;
     }
 </script>

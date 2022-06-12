@@ -23,9 +23,10 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
             _appSettings = configuration.Value;
         }
 
-        public async Task<StockResponseModel> PutStock(string id, int stock, long location)
+        public async Task<StockResponseModel> PutStock(string id, int stock, long location, string consoleAppSettings = null)
         {
             StockResponseModel model = new StockResponseModel();
+            var response = new HttpResponseMessage();
 
             using (var httpClient = new HttpClient())
             {
@@ -51,11 +52,18 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
                 
                 var content = new StringContent(jsonProduct, Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PutAsync(_appSettings.StockAPI, content))
+                if (consoleAppSettings == null)
                 {
+                    response = await httpClient.PutAsync(_appSettings.StockAPI, content);
+                }
+                else
+                {
+                    response = await httpClient.PutAsync(consoleAppSettings, content);
+                }
+              
                     var contents = await response.Content.ReadAsStringAsync();
                     model = JsonConvert.DeserializeObject<StockResponseModel>(contents);
-                }
+               
             }
             return model;
         }

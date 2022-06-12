@@ -1,9 +1,7 @@
-﻿<div id="dialog" title="Error Registering">
+﻿@{ Layout = "_Layout"; ViewBag.Title = "Top 5 Products Sold";}
+
+<div id="dialog" title="Successful">
     <p>@ViewBag.SuccessMessage</p>
 </div>
 
-<script>
-    $(function() {
-    $("#dialog").dialog();
-    });
-</script>
+<a asp-action="Index" class="btn btn-sm btn-primary">Back</a>

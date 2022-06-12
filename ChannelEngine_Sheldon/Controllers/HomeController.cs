@@ -62,7 +62,7 @@ namespace ChannelEngine_Sheldon.Controllers
             }
         }
 
-        [HttpPost]
+        
         public async Task<IActionResult> UpdateStock(string MerchantProductNo, long StockLocationId, int StockLevel)
         {
             try
@@ -71,7 +71,7 @@ namespace ChannelEngine_Sheldon.Controllers
 
                 if (stockResponse.Success)
                 {
-                    ViewBag.SuccessMessage = "Stock Updated Successfully";
+                    ViewBag.SuccessMessage = "Stock for Product " +MerchantProductNo+ " updated to " +StockLevel+ " successfully";
                     return View();
                 }
             }
@@ -86,12 +86,11 @@ namespace ChannelEngine_Sheldon.Controllers
         
         }
 
-
-
         public IActionResult Privacy()
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CeOEoKpPswd9k1SHKblllC8vWXsjPhqVNanmjiuQIA1gjW1nq/E1LRUJzB5Ye8Xor9EuTIFUHfTLQxoicDc9DA==",
+  "dgSpecHash": "MKxl3fjlX4sdf9jmpaapHTZSkqK7YzLmaYJgumAPiBOmhmK7OBrBS04kDNgQnj8AqIwjQuAHTAwmdpcBGJWGMw==",
   "success": true,
-  "projectFilePath": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\ChannelEngine_Sheldon.csproj",
+  "projectFilePath": "C:\\ChannelEngineAssessment\\ChannelEngine_Sheldon\\WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SheldonP\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\SheldonP\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

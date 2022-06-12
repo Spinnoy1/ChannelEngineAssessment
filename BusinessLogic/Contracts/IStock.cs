@@ -9,6 +9,6 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Contracts
 {
     public interface IStock
     {
-        Task<StockResponseModel> PutStock(string id, int stock, long location);
+        Task<StockResponseModel> PutStock(string id, int stock, long location, string consoleAppSettings = null);
     }
 }
