@@ -3,13 +3,8 @@ using ChannelEngine_Sheldon.BusinessLogic.Models;
 using ChannelEngine_Sheldon.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace ChannelEngine_Sheldon.Controllers
 {
@@ -38,24 +33,6 @@ namespace ChannelEngine_Sheldon.Controllers
                 GroupedProductsViewModel gp = new GroupedProductsViewModel();
                 gp.groupedProducts = orderList;
                 
-                //var viewModel = new HomeViewModel();
-
-                //viewModel.groupedProducts = new List<Top5ViewModel>();
-
-                //foreach (var i in orderList)
-                //{
-                //    var product = new Top5ViewModel()
-                //    {
-                //        Description = i.Description,
-                //        Gtin = i.Gtin,
-                //        Quantity = i.Quantity,
-                //        MerchantProductNo = i.MerchantProductNo,
-                //        StockLocationId = i.StockLocation.Id
-                //    };
-
-                //    viewModel.groupedProducts.Add(product);
-                //}
-
                 return View(gp);
             }
             catch

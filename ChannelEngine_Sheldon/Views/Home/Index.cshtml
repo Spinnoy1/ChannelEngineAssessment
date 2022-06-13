@@ -21,7 +21,7 @@
             <td>@o.Description</td>
             <td>@o.Gtin</td>
             <td>@o.Quantity</td>
-            <td><input type ="number" name ="StockLevel" min="1" max="1000" step="1" id="@o.MerchantProductNo" width="100px"/></td>
+            <td><input type ="number" name ="StockLevel" min="1" max="1000" step="1" id="@o.MerchantProductNo" width="100"/></td>
             <td>
                 <input type="button" onclick="postStockLevel('@o.MerchantProductNo.ToString()', '@o.StockLocationId.ToString()', '@o.MerchantProductNo.ToString()')" value="Update Stock" /> 
                 @*<a asp-action="UpdateStock" asp-route-MerchantProductNo="@o.MerchantProductNo" asp-route-StockLocationId="@o.StockLocationId" asp-route-StockLevel="StockLevel">

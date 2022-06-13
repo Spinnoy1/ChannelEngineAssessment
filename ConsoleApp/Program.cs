@@ -1,15 +1,10 @@
 ﻿using ChannelEngine_Sheldon.BusinessLogic.Contracts;
 using ChannelEngine_Sheldon.BusinessLogic.Implimentation;
-using ChannelEngine_Sheldon.BusinessLogic.Models;
 using ChannelEngine_Sheldon.BusinessLogic.Models.AppSettings;
 using ConsoleTables;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -97,7 +92,7 @@ namespace ConsoleApp
             }
             catch
             {
-                Console.WriteLine("Theer was an issue with the service, please try again later.");
+                Console.WriteLine("There was an issue with the service, please try again later.");
                 Console.ReadLine();
             }
 
@@ -118,6 +113,7 @@ namespace ConsoleApp
             if (stockResponse.Success)
             {
                 Console.WriteLine("Product " + id + " Successfully updated to " + stock + " units");
+                Console.WriteLine("Press enter key to exit...");
                 Console.ReadLine();
             }
             else

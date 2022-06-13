@@ -3,8 +3,6 @@ using ChannelEngine_Sheldon.BusinessLogic.Contracts;
 using ChannelEngine_Sheldon.BusinessLogic.Models.AppSettings;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;

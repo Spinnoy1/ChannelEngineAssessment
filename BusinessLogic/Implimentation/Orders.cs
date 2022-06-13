@@ -3,12 +3,9 @@ using ChannelEngine_Sheldon.BusinessLogic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Http;
-using Microsoft.Extensions.Http;
-using System.Text.Json;
 using ChannelEngine_Sheldon.BusinessLogic.Models.AppSettings;
 using Microsoft.Extensions.Options;
 
