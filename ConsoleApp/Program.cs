@@ -39,7 +39,7 @@ namespace ConsoleApp
 
             var _orders = serviceProvider.GetService<IOrders>();
 
-            var orderList = await _orders.GetOrders("IN_PROGRESS", _orderAPIAppSettings);
+            var orderList = await _orders.GetOrders(_orderAPIAppSettings);
 
             //build a table with ConsoleTable Nuget Package
             var table = new ConsoleTable("ProductId", "Description", "Quantity","GTIN");

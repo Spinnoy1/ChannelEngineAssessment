@@ -23,7 +23,7 @@ namespace ChannelEngine_Sheldon.BusinessLogic.Implimentation
         }
    
 
-        public async Task<List<Top5ViewModel>> GetOrders(string status, string consoleAppSettings = null)
+        public async Task<List<Top5ViewModel>> GetOrders(string consoleAppSettings = null)
         {
 
        // var groupedOrders = new List<Line>();

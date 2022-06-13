@@ -28,7 +28,7 @@ namespace ChannelEngine_Sheldon.Controllers
         {
             try
             {
-                var orderList = await this._order.GetOrders("IN_PROGRESS"); // make enum
+                var orderList = await this._order.GetOrders();
                 
                 GroupedProductsViewModel gp = new GroupedProductsViewModel();
                 gp.groupedProducts = orderList;
