@@ -52,6 +52,8 @@ I tested the functionality of the Top 5 logic.
 I tested that we receive only 5 from a batch of x
 I tested that we receive these 5 ordered by highest Quantity and Grouped
 I tested that, if we only have 3 distinct orders only return 3 and dont break.
+I tested that, if we revceive no orders it doesnt break.
+I tested that orders are returned in Desc Order by Qty.
 
 
 
