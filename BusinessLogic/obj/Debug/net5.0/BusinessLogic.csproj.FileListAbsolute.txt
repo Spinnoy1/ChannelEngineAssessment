@@ -21,3 +21,4 @@ C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.C
 C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
 C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
 C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb
+C:\ChannelEngineAssessment\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csprojAssemblyReference.cache

@@ -98,5 +98,49 @@ namespace UnitTests.LogicTests
 
         }
 
+        [Fact]
+        public void Test_Top5SendNoOrdersDontReturnException()
+        {
+            var allProducts = new GroupedProductsViewModel();
+            var model = new List<Top5ViewModel>();
+
+            allProducts.groupedProducts = model;
+
+            var response = _orders.GetTop5Products(allProducts);
+
+            //Test that if there are no orders that we return an empty response and dont break.
+            Assert.Empty(response);
+
+        }
+
+        [Fact]
+        public void Test_Top5ReturnedInCorrectSequence()
+        {
+            var allProducts = new GroupedProductsViewModel();
+            var model = new List<Top5ViewModel>();
+
+            var Order1 = new Top5ViewModel() { Description = "Tshirt Green", Gtin = "G-123456", MerchantProductNo = "1111", Quantity = 5, StockLocationId = 2 };
+            var Order2 = new Top5ViewModel() { Description = "Tshirt Green", Gtin = "G-123456", MerchantProductNo = "1111", Quantity = 6, StockLocationId = 2 };
+            var Order3 = new Top5ViewModel() { Description = "Tshirt Blue", Gtin = "B-123456", MerchantProductNo = "2222", Quantity = 7, StockLocationId = 2 };
+            var Order4 = new Top5ViewModel() { Description = "Tshirt Blue", Gtin = "B-123456", MerchantProductNo = "2222", Quantity = 8, StockLocationId = 2 };
+            var Order5 = new Top5ViewModel() { Description = "Tshirt Red", Gtin = "R-123456", MerchantProductNo = "4444", Quantity = 9, StockLocationId = 2 };
+
+            model.Add(Order1);
+            model.Add(Order2);
+            model.Add(Order3);
+            model.Add(Order4);
+            model.Add(Order5);
+
+            allProducts.groupedProducts = model;
+
+            var response = _orders.GetTop5Products(allProducts);
+            
+            var expectedOrder = response.OrderByDescending(x => x.Quantity);
+
+            //Test that the Products are Ordered by Quantity Descending. 
+            Assert.True(expectedOrder.SequenceEqual(response));
+
+        }
+
     }
 }
